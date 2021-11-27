@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Введите ключ аутентификатора{% endblock %}
+
+{% block body %}
+
+<div class="container" align="center">
+	<h2>Введите код аутентификатора: </h2>
+	<form action="" method="POST">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="authcode" name="authcode" required>
+			<input type="submit" class="btn btn-success">
+		</div>
+	</form>
+</div>
+
+{% endblock %}

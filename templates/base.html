@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	{% block head %}
+	{% endblock %}
+</head>
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" style="font-size: 120%; font-weight: bold;">
+	  <div class="container">
+	    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Site</a>
+    </div>
+
+    <div class="navbar-nav me-auto mb-2 mb-md-0">
+      <ul class="nav navbar-nav">
+
+        {% if session["login"] %}
+    	 <li class="nav-item">
+    	 	<a class="nav-link" href="/settings/">Настройки пользователя</a>
+    	 </li>
+    	{% endif %}
+    	<li class="nav-item">
+    	 	<a class="nav-link" href="/about/">About</a>
+    	 </li>
+        
+      </ul>
+
+    </div>
+    
+
+    <div class="nav navbar-right">
+    {% if session["login"] %}
+     <li class="nav-item"><a href="/close_session/" class="btn btn-danger">Выйти</a></li>
+
+    {% endif %}
+      
+    </div>
+  </div>
+	  </div>
+	</nav>
+	{% block body %}
+	
+	{% endblock %}
+	<nav class="navbar navbar-expand-md navbar-dark fixed-bottom bg-dark">
+	</nav>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

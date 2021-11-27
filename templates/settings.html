@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Настройки пользователя{% endblock %}
+
+{% block body %}
+
+<div class="container" align="center">
+	<h2>Пользователь: {{ session["username"]}}</h2>
+	{% if telegram_auth==True %}
+	<h2>Двухфакторная аутентификация подключена.</h2>
+	{% else %}
+	<h2>Двухфакторная аутентификация НЕ подключена.</h2>
+	<a href="/set_auth/" class="btn btn-primary">Подлючить</a>
+	{% endif %}
+</div>
+
+{% endblock %}
